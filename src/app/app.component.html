@@ -1,162 +1,100 @@
 <form [formGroup]="employeeForm">
   <header class="header"></header>
-  <div class="_1Qrb3mMpKc9jCdghsmylPX">
+  <div class="form-container">
     <div>
       <div class="form-group">
-        <div class="row"><label class="col-xs-12 control-label"><span>Title Code</span></label>
-          <div class="col-xs-12">
-            <div class="row">
-              <div class="col-xs-4"><input type="radio" name="titlecode" id="MR">
-                <label for="MR"><span>MR.</span></label>
-              </div>
-              <div class="col-xs-4"><input type="radio" name="titlecode" id="MRS">
-                <label for="MRS"><span>MRS.</span></label>
-              </div>
-              <div class="col-xs-4"><input type="radio" name="titlecode" id="MISS">
-                <label for="MISS"><span>MISS.</span></label>
-              </div>
+        <label class="control-label"><span>Title Code</span></label>
+        <div class="col-xs-12 mb-15">
+          <div class="row">
+            <div class="col-xs-4 custom-check first-child">
+              <input type="radio" name="titlecode" id="MR">
+              <label for="MR"><span>MR.</span></label>
+            </div>
+            <div class="col-xs-4 custom-check">
+              <input type="radio" name="titlecode" id="MRS">
+              <label for="MRS"><span>MRS.</span></label>
+            </div>
+            <div class="col-xs-4 custom-check last-child">
+              <input type="radio" name="titlecode" id="MISS">
+              <label for="MISS"><span>MISS.</span></label>
             </div>
           </div>
         </div>
       </div>
       <div class="form-group">
-        <div class="row">
-          <label for="firstName" class="col-xs-12 control-label">First name</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12">
-                <input type="text" id="firstName" class="form-control" formControlName="firstName" name="firstName">
-              </div>
-            </div>
-            <span class="help-block" *ngIf="employeeForm.get('firstName').touched">
-              required
-            </span>
-          </div>
-        </div>
+        <label for="firstName" class="control-label">First name</label>
+        <input type="text" id="firstName" class="form-control" formControlName="firstName" name="firstName" [class.error]="employeeForm.get('firstName').invalid && employeeForm.get('firstName').touched">
+        <span class="help-block" *ngIf="employeeForm.get('firstName').touched && employeeForm.get('firstName').invalid">
+          Required
+        </span>
       </div>
       <div class="form-group">
-        <div class="row">
-          <label for="mobileNumber" class="col-xs-12 control-label">Mobile number</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12">
-                <input type="number" id="mobileNumber" class="form-control" name="firstName"
-                  formControlName="mobileNumber">
-              </div>
-            </div>
-            <span class="help-block" *ngIf="employeeForm.get('mobileNumber').touched">
-              required
-            </span>
-          </div>
-        </div>
+        <label for="mobileNumber" class="control-label">Mobile number</label>
+        <input type="number" id="mobileNumber" class="form-control" name="mobileNumber" formControlName="mobileNumber" [class.error]="employeeForm.get('mobileNumber').invalid && employeeForm.get('mobileNumber').touched">
+        <span class="help-block" *ngIf="employeeForm.get('mobileNumber').touched && employeeForm.get('mobileNumber').invalid">
+          Required
+        </span>
       </div>
       <div class="form-group">
-        <div class="row">
-          <label>Nationality</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <select class="col-xs-12" class="form-control" id="nationality" name="nationality"
-                formControlName="nationality">
-                <option value="">Select</option>
-                <option value="American">American</option>
-                <option value="Indian">Indian</option>
-              </select>
-            </div>
-            <span class="help-block" *ngIf="employeeForm.get('nationality').touched">
-              required
-            </span>
-          </div>
-        </div>
+        <label>Nationality</label>
+        <select class="form-control" id="nationality" name="nationality" formControlName="nationality">
+          <option value="">Select</option>
+          <option value="American">American</option>
+          <option value="Indian">Indian</option>
+        </select>
+        <span class="help-block" *ngIf="employeeForm.get('nationality').touched && employeeForm.get('nationality').invalid">
+          Required
+        </span>
       </div>
       <div class="form-group">
-        <div class="row">
-          <label for="birthDate" class="col-xs-12 control-label">Birth date</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12">
-                <input type="date" id="birthDate" class="form-control" formControlName="birthDate" name="birthDate">
-              </div>
-            </div>
-            <span class="help-block" *ngIf="employeeForm.get('birthDate').touched">
-              Enter valid date
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="col-xs-12 col-12 col-sm-6 col-md-4 form-group">
-          <input class="form-control" placeholder="Datepicker" bsDatepicker #dp="bsDatepicker"
-                 [isDisabled]="isDisabled" [minDate]="minDate"
-                 [maxDate]="maxDate">
-        </div> -->
-
-
-      <div class="form-group">
-        <div class="row">
-          <label for="address" class="col-xs-12 control-label">Address</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12">
-                <input type="text" id="address" class="form-control" name="address" formControlName="address">
-              </div>
-            </div>
-            <span class="help-block" *ngIf="employeeForm.get('address').touched">
-              required
-            </span>
-          </div>
-        </div>
+        <label for="birthDate" class="control-label">Birth date</label>
+        <input class="form-control" formControlName="birthDate" name="birthDate" bsDatepicker #dp="bsDatepicker"
+              [isDisabled]="isDisabled" [minDate]="minDate" [maxDate]="maxDate" [class.error]="employeeForm.get('birthDate').invalid && employeeForm.get('birthDate').touched">
+        <span class="help-block" *ngIf="employeeForm.get('birthDate').touched && employeeForm.get('birthDate').invalid">
+          Enter valid date
+        </span>
       </div>
       <div class="form-group">
-        <div class="row">
-          <label for="addressStayDuration" class="col-xs-12 control-label">Address Stay duration</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12">
-                <input type="number" id="addressStayDuration" class="form-control" name="addressStayDuration"
-                  formControlName="addressStayDuration">
-              </div>
-            </div>
-            <span class="help-block" *ngIf="employeeForm.get('addressStayDuration').touched">
-              required
-            </span>
-          </div>
-        </div>
+        <label for="address" class="control-label">Address</label>
+        <input type="text" id="address" class="form-control"
+          [class.error]="employeeForm.get('address').invalid && employeeForm.get('address').touched" name="address"
+          formControlName="address">
+        <span class="help-block" *ngIf="employeeForm.get('address').touched && employeeForm.get('address').invalid">
+          Required
+        </span>
       </div>
       <div class="form-group">
-        <div class="row"><label class="col-xs-12 control-label"><span>Marital Status</span></label>
-          <div class="col-xs-12">
-            <div class="row">
-              <div class="col-xs-6">
-                <input type="radio" name="maritalStatue" id="single">
-                <label for="single"><span>Single</span></label>
-              </div>
-              <div class="col-xs-6">
-                <input type="radio" name="maritalStatue" id="married">
-                <label for="married"><span>Married</span></label>
-              </div>
-            </div>
-          </div>
-        </div>
+        <label for="addressStayDuration" class="control-label">Address Stay duration</label>
+        <input type="number" id="addressStayDuration" class="form-control" name="addressStayDuration"
+          formControlName="addressStayDuration">
+        <span class="help-block" *ngIf="employeeForm.get('addressStayDuration').touched && employeeForm.get('addressStayDuration').invalid">
+          Required
+        </span>
       </div>
       <div class="form-group">
-        <div class="row">
-          <label for="spouseName" class="col-xs-12 control-label">Spouse name</label>
-          <div class="padding-0 col-xs-12">
-            <div class="row">
-              <div class="col-xs-12">
-                <input type="text" id="spouseName" class="form-control" name="spouseName" formControlName="spouseName">
-              </div>
+        <label class="control-label"><span>Marital Status</span></label>
+        <div class="col-xs-12 mb-15">
+          <div class="row">
+            <div class="col-xs-6 custom-check first-child">
+              <input type="radio" name="maritalStatus" id="single" (click)="maritalStatus='Single'">
+              <label for="single"><span>Single</span></label>
             </div>
-            <span class="help-block" *ngIf="employeeForm.get('spouseName').touched">
-              required
-            </span>
+            <div class="col-xs-6 custom-check last-child">
+              <input type="radio" name="maritalStatus" id="married" (click)="maritalStatus='Married'">
+              <label for="married"><span>Married</span></label>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div id="application-form-next-wrapper" class="col-xs-12">
-          <button id="application-form-next" type="button" class="btn btn-primary">NEXT</button>
-        </div>
+      <div class="form-group" *ngIf="maritalStatus=='Married'">
+        <label for="spouseName" class="control-label">Spouse name</label>
+        <input type="text" id="spouseName" class="form-control" name="spouseName" formControlName="spouseName" [class.error]="employeeForm.get('spouseName').invalid && employeeForm.get('spouseName').touched">
+        <span class="help-block" *ngIf="employeeForm.get('spouseName').touched && employeeForm.get('spouseName').invalid">
+          Required
+        </span>
+      </div>
+      <div id="application-form-next-wrapper" class="text-right">
+        <button id="application-form-next" type="button" class="btn btn-primary">NEXT</button>
       </div>
     </div>
   </div>

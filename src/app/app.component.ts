@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-//import { setTheme } from 'ngx-bootstrap/utils';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +9,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 export class AppComponent {
   title = 'Angular';
   employeeForm: any;
- // isDisabled: boolean;
   maxDate: Date;
+  minDate: Date;
 
-  constructor(private _fb: FormBuilder) {
-    //setTheme('bs3');
-  }
+  constructor(private _fb: FormBuilder) {}
 
   ngOnInit() {
     this.employeeForm = this._fb.group({
@@ -27,12 +24,14 @@ export class AppComponent {
       addressStayDuration: ['', Validators.required],
       spouseName: ['', Validators.required],
     });
-    // this.isDisabled = true;
     this.maxDate = new Date();
-    this.maxDate.setDate(this.maxDate.getDate());
-    this.maxDate.setMonth(this.maxDate.getMonth());
+    //this.minDate = new Date();
+    //this.maxDate.setDate(this.maxDate.getDate());
+    //this.maxDate.setMonth(this.maxDate.getMonth());
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 20);
+    this.minDate.setFullYear(this.maxDate.getFullYear() - 200);
   }
+  
 
 
 }
