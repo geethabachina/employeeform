@@ -25,9 +25,6 @@ export class AppComponent {
       spouseName: ['', Validators.required],
     });
     this.maxDate = new Date();
-    //this.minDate = new Date();
-    //this.maxDate.setDate(this.maxDate.getDate());
-    //this.maxDate.setMonth(this.maxDate.getMonth());
     this.maxDate.setFullYear(this.maxDate.getFullYear() - 20);
     this.minDate.setFullYear(this.maxDate.getFullYear() - 200);
   }
